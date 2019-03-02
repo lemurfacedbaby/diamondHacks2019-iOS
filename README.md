@@ -22,8 +22,11 @@ cd "${SRCROOT}/${TARGET_NAME}"
 $APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries="$(find . -name '*.graphql')" --schema=schema.json API.swift
 #### 3. Add the following code as global variables in AppDelegate.swift
 import Apollo
+
 let graphEndpoint = "http://hasura_ip_address/v1alpha1/graphql"
+
 let apollo = ApolloClient(url: URL(string: graphEndpoint)!)
+
 #### 4. Add the schema.json file to your app directory
 #### 5. Create a file with the .graphql extension to hold queries, mutations, and subscriptions
 #### 6. Build the project, then add the generated API.swift file to your app directory
